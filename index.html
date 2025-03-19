@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cuánto falta para mi cumpleaños?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffcccc, #ff6666);
+            color: #333;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+   ="countdown" id="countdown">Cargando...</div>
+    <h2>Elige un regalo:</h2>
+    <ul>
+        <li>Moto</li>
+        <li>Carro</li>
+        <li>Avión</li>
+        <li>5 Mujeres</li>
+        <li>5000 Mil Dólares en Efectivo</li>
+    </ul>
+
+    <script>
+        function updateCountdown() {
+            const birthday = new Date('2025-03-26');
+            const today = new Date();
+            const diff = birthday - today;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = days > 0 
+                ? `¡Faltan ${days} días para tu cumpleaños!` 
+                : `¡Feliz Cumpleaños! 🎉`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000 * 60 * 60 * 24); // Actualiza cada día
+    </script>
+</body>
+  </html>
